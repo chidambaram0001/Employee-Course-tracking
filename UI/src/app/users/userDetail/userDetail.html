@@ -1,0 +1,30 @@
+<h1>User Detail</h1>
+
+<div class="container list" *ngIf="userData$">
+    <label>Employee Id</label> : <label>{{(userData$|async)?.employeeId}}</label> <br/>
+
+    <label>Delegate Id </label> : <label>{{(userData$|async)?.delegate_id}}</label> <br/>
+    <label>First Name</label> : <label>{{(userData$|async)?.userrecords.first_name}}</label> <br/>
+    <label>Last Name</label> : <label>{{(userData$|async)?.userrecords.last_name}}</label>
+   <div class="records">
+    <h4>Records</h4>
+    <div *ngFor="let rec of (userData$|async)?.userrecords.records;let i = index;">
+         <h5  (click)="toggleAccordian($event, i)">{{rec.course_title}}</h5>
+        <div  class="panel subData" hide="!item.isActive">
+            <ul>
+                <li><label>Title : </label> <label> {{rec.course_title}}</label></li>
+                <li><label>Country : </label> <label> {{rec.country}}</label></li>
+                <li><label>Course Code : </label> <label> {{rec.course_code}}</label></li>
+                <li><label>Completed on : </label> <label >{{rec.completed_on}}</label></li>
+                <li><label>Previous Course Valid Until : </label> <label> {{rec.previous_course_valid_until}}</label></li>
+                <li><label>Status : </label> <label> {{rec.status}}</label></li>
+                <li><label>Training Provider : </label> <label> {{rec.training_provider}}</label></li>
+                <li><label>Valid From : </label> <label> {{rec.valid_from}}</label></li>
+                <li><label>Valid Until : </label> <label> {{rec.valid_until}}</label></li>
+
+            </ul>
+        </div>
+    </div>
+   </div>
+</div>
+

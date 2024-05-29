@@ -1,0 +1,45 @@
+<h1>User List</h1>
+<label class="msg" [ngClass]="{'info':msg}">{{msg}}</label>
+<div class="adduser"> <a [routerLink]="['/userData/add']"> Add User</a></div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Delegate ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="list$">
+        <tr *ngFor="let user of list$|async">
+            <td>{{user.employeeId}}</td>
+            <td>{{user.delegate_id}}</td>
+            <td>{{user.userrecords?.first_name || ''}}</td>
+            <td>{{user.userrecords?.last_name || ''}}</td>
+            <td><a [routerLink]="['/userData/userDetail',user.employeeId]"><i class="far fa-eye"></i></a> <a [routerLink]="['/userData/edit',user.employeeId]"><i class="fas fa-edit"></i></a> <a  (click)="delete(user.employeeId,user.delegate_id)"><i class="fas fa-user-minus"></i></a></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- 
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+    <div>
+        <label> user name</label>
+        <input type="text" formControlName="name"/>
+    </div>
+    <div>
+        <label> Email</label>
+        <input type="text" formControlName="email"/>
+    </div>
+    <div>
+        <label>Age</label>
+        <input type="text" formControlName="age"/>
+    </div>
+    <div>
+        <label>Address</label>
+        <input type="text" formControlName="address"/>
+    </div>
+    <input type="submit" value="submit" />
+</form> -->

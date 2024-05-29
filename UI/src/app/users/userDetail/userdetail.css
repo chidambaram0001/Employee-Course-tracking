@@ -1,0 +1,79 @@
+.container label{
+    padding: 10px 0;
+    display: inline-block;
+    color: #004281;
+
+}
+.container ul li{
+    list-style-type: none;
+}
+/* .subData{
+    display: none;
+} */
+.container h4{
+    color: #004281;
+}
+.container h5{
+    border: 1px solid #004281;
+    padding: 10px;
+    margin: 1px 0px;
+    color: #004281;
+    position: relative;
+}
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+    right: 18px;
+    position: absolute;
+    font-size: 20px;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+h1{
+padding: 14px 0px 4px 27px;
+margin: 0;
+font-size: 21px;
+color: #004281;
+}
+.container.list {
+    padding: 20px;
+}
+
+.msg{
+    text-indent: 20px;
+    margin-left: 2%;
+    display: block;
+    padding-top: 3px;
+    color: green;
+    font-weight: bold;
+}

@@ -1,0 +1,60 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0px 10px;
+    background: #004281;
+}
+section{
+    float: left;
+    width: 85%;
+    background: #fff;
+    border-radius: 20px;
+}
+aside{
+    float: left;
+    background: #004281;
+}
+
+.logo h1{
+   
+      color: #fff;
+    font-size: 20px;
+    font-style: italic;
+   
+}
+.users {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.users i{
+    color: #fff;
+}
+.users i.fa-user:before{
+    padding-right: 10px;
+}
+.container {
+    display: flex;
+   
+   
+}
+aside ul li{
+    list-style: none;
+    
+}
+
+aside nav ul li a{
+    color:#fff;
+    text-decoration: none;
+    color: #cbcbcb;
+    text-decoration: none;
+    padding: 10px 29px;
+    display: block;
+    margin-right: 10px;
+
+}
+aside nav ul li a:hover{
+    background-color: #acb4ba;
+    color: #004281;
+}

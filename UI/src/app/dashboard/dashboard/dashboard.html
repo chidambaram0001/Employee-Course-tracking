@@ -1,0 +1,41 @@
+<div class="top-details">
+  <div class="users">
+    <h4>Toal Users</h4>
+    {{userData?.length || 0}}
+  </div>
+  <div class="courses">
+    <h4>Toal Courses</h4>
+    {{recorrds?.length || 0}}
+  </div>
+</div>
+
+<div class="usrselect">
+  <label>Select the User for Course Validity in Graph :</label>
+  <select *ngIf="userNames.length > 0" [(ngModel)]="userSelected" (change)="selectedUser($event)">
+    
+    <option *ngFor="let i of userNames" [value]="i.delegate_id">{{i.first_name}}</option>
+  </select>
+</div>
+<div class="charts">
+  <div id="chart">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [fill]="chartOptions.fill"
+      [grid]="chartOptions.grid"
+      [dataLabels]="chartOptions.dataLabels"
+      [plotOptions]="chartOptions.plotOptions"
+      [xaxis]="chartOptions.xaxis"
+      [yaxis]="chartOptions.yaxis"
+    ></apx-chart>
+  </div>
+  <div id="chartPie">
+    <apx-chart
+      [series]="chartOptionsPie.series"
+      [chart]="chartOptionsPie.chart"
+      [labels]="chartOptionsPie.labels"
+      [responsive]="chartOptionsPie.responsive"
+    ></apx-chart>
+  </div>
+</div>
+

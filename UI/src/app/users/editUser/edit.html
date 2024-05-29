@@ -1,0 +1,31 @@
+<div class="container edit">
+  <label class="msg" [ngClass]="{'info':msg}">{{msg}}</label>
+<label>Employee Id : </label> <div class="lbl">{{userData?.employeeId}}</div> <br/>
+
+    <label>Delegate Id :</label>  <div class="lbl">{{userData?.delegate_id}}</div> <br/>
+    <label>First Name :</label>  <div class="lbl">{{userData?.userrecords.first_name}}</div> <br/>
+    <label>Last Name :</label>  <div class="lbl">{{userData?.userrecords.last_name}}</div>
+<form [formGroup]="formUser" *ngIf="formUser.get('records')" (ngSubmit)="updateUser()">
+ 
+    <div formArrayName="records"
+      *ngFor="let item of formUser.get('records').controls; let i = index;">
+      <div [formGroupName]="i" class="grp-data">
+        <label>Course Title : </label><input type ="text" formControlName="course_title" />
+        <label>Course Code : </label><input type ="text"formControlName="course_code" />
+        <label>Country : </label><input type ="text" formControlName="country" />
+        <label>Training Provider : </label><input type ="text" formControlName="training_provider" />
+        <label>Compeleted On : </label><input type ="Date" formControlName="completed_on" />
+        <label>Valid Form : </label><input type ="Date" formControlName="valid_from" />
+        <label>Valid Until : </label><input type ="Date" formControlName="valid_until"/>
+        <label>Previous Course Valid Until : </label><input type ="Date" formControlName="previous_course_valid_until" />
+        <label>Status : </label> <input type ="text" formControlName="status" />
+      </div>
+    
+      <!-- Chosen name: {{ orderForm.controls.items.controls[i].controls.name.value }} -->
+    </div>
+    <input type="submit" class="updateusr" value="Update User"/>
+  </form>
+</div>
+
+
+    

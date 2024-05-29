@@ -1,0 +1,44 @@
+#chart {
+    max-width: 650px;
+    margin: 35px auto;
+    
+  }
+.top-details{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.top-details div{
+  background: rgb(116,114,150);
+  background: linear-gradient(90deg, rgba(116,114,150,1) 0%, rgba(109,116,147,0.969625350140056) 17%, rgba(95,214,238,1) 100%); 
+  color: #fff;
+  margin: 20px 58px;
+  padding: 32px;
+  text-align: center;
+  border-radius: 20px;
+
+  }
+  select{
+    padding: 8px 15px;
+    background: #004281;
+    color: #fff;
+    margin-left: 2%;
+    font-weight: bold;
+  }
+  label {
+    color: #004281;
+    display: block;
+    font-weight: bold;
+    padding-bottom: 12px;
+    text-indent: 12px;
+}
+
+#chartPie {
+  max-width: 380px;
+  margin: 35px auto;
+  padding: 0;
+}
+.charts{
+ 
+}

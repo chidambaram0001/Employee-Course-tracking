@@ -1,0 +1,20 @@
+<header>
+    <div class="logo"><h1>Vestas</h1></div> <div class="users"><i class="fa fa-user" aria-hidden="true"> Chidambaram </i>
+    </div>
+</header>
+<div class="container">
+    <aside>
+        <nav>
+            <ul>
+                <li><a [routerLink]="['/dashboard']"><i class="fas fa-tachometer-alt"></i> DashBoard</a></li>
+                <li><a [routerLink]="['/userData']"><i class="fas fa-users"></i> Users</a></li>
+            </ul>
+        </nav>
+    
+    </aside>
+    <section>
+        <router-outlet></router-outlet>
+    </section>
+</div>
+
+

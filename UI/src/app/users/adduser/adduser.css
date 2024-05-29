@@ -1,0 +1,42 @@
+label {
+    display: block;
+}
+.container.add {
+    padding: 28px;
+}
+.lbl{
+    text-indent: 8px;
+    padding-top: 10px;
+}
+.adduser{
+    margin-right: 5px;
+}
+.adduser,.addrec{
+    padding: 7px 34px;
+    background: transparent;
+    border: 1px solid #004281;
+}
+.adduser:hover,.addrec:hover{
+    background:#004281;
+    color: #fff;
+    cursor: pointer;
+}
+input[type='text'],input[type='date']{
+    padding: 7px 9px;
+    margin-bottom: 15px;
+
+}
+.msg{
+    display: block;
+    padding-top: 3px;
+    margin-left: 10px;
+  }
+  
+  .info{
+    background: #709170;
+    color: #fff;
+    padding: 10px 0px;
+    text-indent: 20px;
+    border-left: 10px solid #004281;
+    margin-bottom: 5px;
+  }

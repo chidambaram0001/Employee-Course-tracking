@@ -1,0 +1,61 @@
+
+<div class="container add">
+    <label class="msg" [ngClass]="{'info':msg}">{{msg}}</label>
+
+<form [formGroup]="formUser" *ngIf="formUser.get('records')" (ngSubmit)="addUser()">
+    <label>First Name : </label>
+    <div class="lbl">
+        <input type ="text" formControlName="first_name" />
+    </div>
+    <label>Last Name : </label>
+    <div class="lbl">
+        <input type ="text" formControlName="last_name" />
+    </div>
+    <div formArrayName="records"
+      *ngFor="let item of formUser.get('records').controls; let i = index;">
+      <div [formGroupName]="i" class="grp-data">
+        <label>Course Title : </label>
+        <div class="lbl">
+            <input type ="text" formControlName="course_title" />
+        </div>
+        <label>Course Code : </label>
+        <div class="lbl">
+            <input type ="text"formControlName="course_code" />
+        </div>
+        <label>Country : </label> 
+        <div class="lbl">
+            <input type ="text" formControlName="country" />
+        </div>
+        <label>Training Provider : </label>
+        <div class="lbl">
+            <input type ="text" formControlName="training_provider" />
+        </div>
+        <label>Completed On : </label>
+        <div class="lbl">
+            <input type ="Date" formControlName="completed_on" />
+        </div>
+        <label>Valid From : </label>
+        <div class="lbl">
+            <input type ="Date" formControlName="valid_from" />
+        </div>
+        <label>Valid Until : </label>
+        <div class="lbl">
+            <input type ="Date" formControlName="valid_until"/>
+        </div>
+        <label>Previous Course Valid Until : </label>
+        <div class="lbl"> 
+            <input type ="Date" formControlName="previous_course_valid_until" />
+        </div>
+        <label>Status : </label>   <div class="lbl"> 
+            <input type ="text" formControlName="status" />
+        </div>
+      </div>
+    </div>
+    <br/>
+    <input type="submit" class="adduser" value="Add User"/> <input type="button" class="addrec" (click)="addItem()" value="Add Record">
+</form>
+</div>
+
+
+
+    

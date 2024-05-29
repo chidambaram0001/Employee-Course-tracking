@@ -1,0 +1,34 @@
+{
+  "/users": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true
+   
+  },
+  "/usDetail/*": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true
+   
+  },
+  "/adduser": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true
+   
+  },
+  "/deleteUser/*": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true
+   
+  },
+  "/updateUserDetail": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true
+   
+  }
+  
+  
+}
