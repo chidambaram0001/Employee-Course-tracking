@@ -5,14 +5,14 @@ import fs from 'fs';
 import users from './models/users.js';
 import records from './models/userRecords.js';
 const loadJSON = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
-const usersData = loadJSON('../mainUser.json');
-const recordsData = loadJSON('../userDetails.json');
+// const usersData = loadJSON('../mainUser.json');
+// const recordsData = loadJSON('../userDetails.json');
 
  var app = express();
 
  app.use(express.json());
  app.listen(3000,()=>{
-   mongoose.connect('mongodb://127.0.0.1:27017/vestas')
+   mongoose.connect('mongodb://root:root@mongo-vestas:27017/vestas?authSource=admin')
    console.log("service started")
    
 })
@@ -30,11 +30,11 @@ app.use(function (req, res, next) {
     console.log("db connected")
   
 var allData = [];
-usersData.root.employee.forEach((user) => {
-    var data = recordsData.root.records.filter(record => record.delegate_id === user.delegate_id)
-    user['recordDetails'] = data
-    allData.push(user)
-   });
+// usersData.root.employee.forEach((user) => {
+//     var data = recordsData.root.records.filter(record => record.delegate_id === user.delegate_id)
+//     user['recordDetails'] = data
+//     allData.push(user)
+//    });
    
    //addUser(allData) // for DB restore uncomment this code and start the service, only once! 
  })
@@ -54,10 +54,28 @@ record.createModel()
 
 app.get('/users',(req,res)=>{
    // Retriving data with minimal query due to populate referencing
-    currentUsers.collectionModel.find({}).populate({path:'userrecords'}).exec().then((data)=>{
-       res.json(data)
+   //  currentUsers.collectionModel.find({}).populate({path:'userrecords'}).exec().then((data)=>{
+   //     res.json(data)
     
-    })
+   //  })
+
+   currentUsers.collectionModel.aggregate([{
+      $lookup:{
+         from:'userrecords',
+         localField:'delegate_id',
+         foreignField:'delegate_id',
+         as:'userrecords'
+      }
+   },
+   {$unwind: '$userrecords'},
+   {
+     $project: {
+      employeeId: 1, delegate_id: 1, userrecords:1
+     }
+   }]).exec().then((data)=>{
+          res.json(data)
+       
+       })
  
 })
 

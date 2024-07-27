@@ -1,0 +1,28 @@
+
+
+services:
+  ui:
+    build: ./ui
+    ports:
+      - "4100:80"
+  node-service:
+    build: ./service
+    ports:
+          - "3100:3000"
+  mongo-vestas:
+    image: mongo:bionic
+    restart: always
+    environment:
+       MONGO_INITDB_ROOT_USERNAME : root
+       MONGO_INITDB_ROOT_PASSWORD : root
+    #volumes:
+     # - ./mongorestore.sh:/docker-entrypoint-initdb.d/mongorestore.sh
+      #- ./vestas:/data/db
+    
+    ports:
+      - "27018:27017"
+
+
+  #restore the mongodb to docker
+
+  # docker exec -i <mongodb container> sh -c 'mongorestore --authenticationDatabase admin -u root -p password --db' < db.dump

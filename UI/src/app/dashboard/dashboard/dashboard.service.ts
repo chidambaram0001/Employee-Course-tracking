@@ -12,7 +12,7 @@ export class dashboardService{
     }
 
     getUsers(){
-        return this.http.get('http://localhost:3000/users');
+        return this.http.get('http://localhost:3100/users');
     }
 }
 
